@@ -12,3 +12,16 @@ mat-form-field{
 mat-card-actions, mat-card-header{
     margin: auto;
 }
+
+.TrolloLogin{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
