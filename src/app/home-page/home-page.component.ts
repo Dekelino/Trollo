@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
+import { PopUpComponent } from '../pop-up/pop-up.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +12,7 @@ export class HomePageComponent implements OnInit {
   
   username = ''
 
-  constructor(private usersService: UsersService){
+  constructor(private usersService: UsersService,private dialogRef: MatDialog){
 
   }
 
@@ -24,4 +26,8 @@ export class HomePageComponent implements OnInit {
     this.usersService.logout();
   }
 
+  openDialog() {
+    this.dialogRef.open(PopUpComponent);
+  }
 }
+

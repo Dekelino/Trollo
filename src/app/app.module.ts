@@ -15,7 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import {MatDialogModule} from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatToolbarModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule
     
   ],
   providers: [],
