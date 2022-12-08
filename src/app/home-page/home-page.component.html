@@ -1,29 +1,35 @@
 <mat-toolbar>
-  <button
+  <!-- <button
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"
   >
     <mat-icon>menu</mat-icon>
-  </button>
+  </button> -->
   <img class="TrolloHome" src="assets/TrolloProjectLogo.png" />
 
   <span class="example-spacer"></span>
-  <button
+  <!-- <button
     mat-icon-button
     class="example-icon favorite-icon"
     aria-label="Example icon-button with heart icon"
   >
     <mat-icon>favorite</mat-icon>
-  </button>
-  <mat-slide-toggle>Dark mode</mat-slide-toggle>
+  </button> -->
+  <!-- <mat-slide-toggle>Dark mode</mat-slide-toggle>
   <button
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with share icon"
   >
     <mat-icon>share</mat-icon>
-  </button>
+  </button> -->
+  <span>
+    {{username}}
+    <button mat-flat-button color="primary" (click)="logout()">
+      <mat-icon>logout</mat-icon> Logout
+    </button>
+  </span> 
 </mat-toolbar>
 
 <div class="row">

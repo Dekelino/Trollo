@@ -1,19 +1,16 @@
-<form (ngSubmit)="onSubmit">
+<form (ngSubmit)="onSubmit()">
     <div class="wrapper">
     <mat-card>
         <img class="TrolloLogin" src="assets/TrolloProjectLogo.png"/>
-        <mat-card-header>
-            <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
         <mat-card-content>
             <mat-form-field appearance="fill">
                 <mat-label>Username</mat-label>
-                <input matInput [(ngModel)]="auth.name" name="name">
+                <input matInput [(ngModel)]="auth.username" name="username">
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Enter your password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"
-                [(ngModel)]="auth.password" name="pass">
+                [(ngModel)]="auth.password" name="password">
                 <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
