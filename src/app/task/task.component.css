@@ -1,0 +1,58 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.TrolloHome {
+    margin-left: 15px;
+    width: 150px;
+}
+
+.example-card {
+    max-width: 400px;
+  }
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.list{
+    padding: 15px;
+}
+
+.headerList{
+    padding: 15px;
+   background-color: rebeccapurple;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+}
+
+.bottomList{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.card{
+   max-width: 100%;
+   width: 100vw;
+   margin: 15px 0px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.arrows {
+    display: flex;
+    flex-direction: row;
+}
+
+.textCard{
+    padding: 0px 15px;
+}
+
+.topCard{
+    display: flex;
+    flex-direction: row;
+}

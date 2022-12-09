@@ -15,7 +15,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatDialogModule} from '@angular/material/dialog'
+import {MatDialogModule} from '@angular/material/dialog';
+import { TaskComponent } from './task/task.component'
 
 
 
@@ -23,7 +24,8 @@ import {MatDialogModule} from '@angular/material/dialog'
   declarations: [
     AppComponent,
     LoginComponent,
-    HomePageComponent
+    HomePageComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

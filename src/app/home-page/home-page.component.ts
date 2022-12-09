@@ -29,5 +29,6 @@ export class HomePageComponent implements OnInit {
   openDialog() {
     this.dialogRef.open(PopUpComponent);
   }
+
 }
 
