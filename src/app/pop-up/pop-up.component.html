@@ -1,27 +1,28 @@
 <div class="container">
-    <form>
-      <div class="row">
-        <div class="col-25">
-          <label for="fname">Task Name:</label>
-        </div>
-        <div class="col-75">
-          <textarea id="nameTextArea" name="subject" placeholder="Write something.."></textarea>
-        </div>
+  <form>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Task Name:</label>
       </div>
-      <div class="row">
+      <div class="col-75">
+        <textarea id="nameTextArea" name="name" #name
+          placeholder="Write something.."></textarea>
       </div>
+    </div>
+    <div class="row">
+    </div>
 
 
-      <div class="row">
-        <div class="col-25">
-          <label for="fname">Task description:</label>
-        </div>
-        <div class="col-75">
-          <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
-        </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Task description:</label>
       </div>
-      <div class="row">
-        <input type="submit" value="Submit">
+      <div class="col-75">
+        <textarea id="subject" name="text" #text  placeholder="Write something.."></textarea>
       </div>
-    </form>
-  </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit" (click)="submitTask(name.value,text.value)">
+    </div>
+  </form>
+</div>

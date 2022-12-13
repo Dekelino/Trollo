@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, EMPTY, map, Observable, Subject } from 'rxjs';
 import { Auth } from 'src/entities/auth';
+import { OneTask } from 'src/entities/oneTask.js';
 import { MyTask } from 'src/entities/task';
 
 
@@ -95,6 +96,14 @@ export class UsersService {
 
     getTasks(){
       return this.http.get<MyTask[]>(this.url + 'tasks')
+    }
+
+    postTask(body : OneTask){
+      return this.http.post(this.url + "task",body)
+    }
+
+    deleteTask(id : number){
+      return this.http.delete(this.url+"tasks/"+id)
     }
   
     processError(error:any): Observable<never> {

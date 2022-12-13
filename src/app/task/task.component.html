@@ -1,7 +1,7 @@
 <mat-card class="card">
 
     <div class="textCard">
-      <mat-card-content> {{myTask.text}}</mat-card-content>
+      <mat-card-content> {{myTask.name}}</mat-card-content>
 
     </div>
 
@@ -25,6 +25,7 @@
         mat-icon-button
         class="example-icon favorite-icon"
         aria-label="Example icon-button with heart icon"
+        (click)="deleteOneTask(myTask.id)"
       >
         <mat-icon class="close">close</mat-icon>
       </button>
