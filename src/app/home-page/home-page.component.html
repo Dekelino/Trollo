@@ -40,7 +40,7 @@
       </mat-card-header>
       <mat-card-content>
         <!--Tu je card-->
-        <app-task></app-task>
+        <app-task *ngFor="let data of dataSource" [myTask] = "data" ></app-task>
 
         
 
@@ -68,7 +68,7 @@
       </mat-card-header>
       <mat-card-content>
         <!--Tu je card-->
-        <app-task></app-task>
+        <app-task *ngFor="let data of dataSource" [myTask] = "data"></app-task>
       </mat-card-content>
       <mat-card-actions>
         <button
@@ -91,7 +91,7 @@
       </mat-card-header>
       <mat-card-content>
         <!--Tu je card-->
-        <app-task></app-task>
+        <app-task *ngFor="let data of dataSource" [myTask] = "data"></app-task>
 
       </mat-card-content>
       <mat-card-actions>

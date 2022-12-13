@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, EMPTY, map, Observable, Subject } from 'rxjs';
 import { Auth } from 'src/entities/auth';
+import { MyTask } from 'src/entities/task';
 
 
 export const DEFAULT_REDIRECT_AFTER_LOGIN = "/homePage";
@@ -90,6 +91,10 @@ export class UsersService {
         this.token = '';
       });
       this.router.navigateByUrl(this.redirectAfterLogout);
+    }
+
+    getTasks(){
+      return this.http.get<MyTask[]>(this.url + 'tasks')
     }
   
     processError(error:any): Observable<never> {
