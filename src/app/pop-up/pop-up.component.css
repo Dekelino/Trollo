@@ -12,6 +12,7 @@ input[type=text], select, textarea{
   label {
     padding: 12px 12px 12px 0;
     display: inline-block;
+    margin-right: 15px;
   }
   
   /* Style the submit button */
@@ -61,5 +62,9 @@ input[type=text], select, textarea{
     }
   }
 
-  .nameTextArea{
+  mat-mdc-button-touch-target{
+    background-color: purple;
   }
+
+
+  
