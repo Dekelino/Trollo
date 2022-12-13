@@ -1,3 +1,5 @@
+
+
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -50,9 +52,28 @@
 
 .textCard{
     padding: 0px 15px;
+    margin-right: 130px ;
+    font-weight: 600;
 }
 
 .topCard{
     display: flex;
     flex-direction: row;
+}
+.task-description{
+    background-color: #F3E5F5;
+    margin-right: -145px;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.outlineDelete{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }

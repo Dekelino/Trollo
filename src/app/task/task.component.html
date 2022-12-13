@@ -1,9 +1,16 @@
 <mat-card class="card">
-
-    <div class="textCard">
-      <mat-card-content> {{myTask.name}}</mat-card-content>
-
+  <div>
+    <button (click)="description()" class="outlineDelete">
+      <div class="textCard">
+        <mat-card-content> {{myTask.name}}</mat-card-content>
+      </div>
+    </button>
+  
+    <div [hidden]="isDisplay" class="task-description">
+      Tu description strašne dlhy no proste pisem dačo žeby bolo a jak to bude vyzerat ma zaujima najviac
     </div>
+  </div>
+  
 
     <div class="arrows">
       <button

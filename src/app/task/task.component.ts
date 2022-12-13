@@ -34,6 +34,10 @@ export class TaskComponent implements OnInit {
     this.dialogRef.open(PopUpComponent);
     
   }
+  isDisplay=true;
+  description(){
+    this.isDisplay=!this.isDisplay
+  }
 
 }
 
