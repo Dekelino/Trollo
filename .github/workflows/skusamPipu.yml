@@ -1,14 +1,17 @@
-name: Cypress Tests
-
 on: [push]
 
 jobs:
-  cypress-run:
+  cypress:
     runs-on: ubuntu-latest
+    name: Run Cypress tests
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v5.0.0 # use the explicit version number
+    - uses: actions/checkout@v2
+    - name: Install and cache dependencies
+      run: |
+        npm ci
+        npm run cy:cache
+    - name: Run Cypress tests
+      uses: cypress-io/github-action@v1
+      with:
+        record: true
+        record_key: 1c9db565-061e-43c5-a153-db12b9811fd6
