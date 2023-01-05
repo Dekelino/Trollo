@@ -1,0 +1,16 @@
+name: End-to-End Tests
+
+on: [push]
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+    env:
+        CYPRESS_RECORD_KEY: 4864611f-d7f1-4f66-a9d3-206d9ea8145c
+        CYPRESS_PROJECT_ID: s7tus6
+        run: npx cypress run --spec "cypress/e2e/login.cy.ts"
