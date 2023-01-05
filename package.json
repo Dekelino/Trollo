@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:cypress": "cypress run",
-    "cy:cache": "cypress cache"
+    "cy:cache": "cypress cache",
+    "cypress:open": "cypress open --config-file=cypress.config.ts"
   },
   "private": true,
   "dependencies": {
