@@ -6,7 +6,7 @@ describe('template spec', () => {
     cy.get('input[name="username"]').type('Testser')
     cy.get('input[name="password"').type('heslojeden23')
     cy.get('button').contains("Login").click()
-    cy.wait(2000ms)
+    cy.wait(2000)
     cy.get('button').contains("Logout").click()
 
 
