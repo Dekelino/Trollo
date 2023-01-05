@@ -1,0 +1,24 @@
+name: Cypress tests
+
+on: [push]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+      #Install NPM dependencies, cache them correctly
+      #and run all cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2.3.6
+        with:
+              build: npm run build
+              start: npm start
+              record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      
