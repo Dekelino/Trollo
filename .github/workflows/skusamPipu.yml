@@ -1,14 +1,16 @@
-name: Cypress CI
+name: Cypress Tests
 
 on: [push]
 
 jobs:
-  cypress:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v5.x.x # use the explicit version number
         with:
-          node-version: 12
-      - run: npm ci
-      - run: npm run test:cypress
+          browser: firefox
