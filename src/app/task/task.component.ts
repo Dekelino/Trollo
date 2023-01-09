@@ -16,12 +16,13 @@ export class TaskComponent implements OnInit {
   @Input("myTask") myTask! : MyTask
 
 
+  username = ''
 
   constructor(private usersService: UsersService,private dialogRef: MatDialog){
-
   }
   ngOnInit(): void {
     console.log(this.myTask.text)
+    this.username = this.usersService.username;
   }
 
   deleteOneTask(id:number){
