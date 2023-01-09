@@ -10,7 +10,6 @@ describe('template spec', () => {
     cy.get('button').contains("Login")
     .click({force:true})
     cy.visit('./homePage')
-    cy.wait(10000)
     cy.get('button').contains("Logout")
     .should('be.visible')
     .click()
