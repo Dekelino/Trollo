@@ -25,89 +25,108 @@
     <mat-icon>share</mat-icon>
   </button> -->
   <span>
-    {{username}}
+    {{ username }}
     <button mat-flat-button color="primary" (click)="logout()">
       <mat-icon>logout</mat-icon> Logout
     </button>
-  </span> 
+  </span>
 </mat-toolbar>
 
-<div class="row">
-  <div class="list">
-    <mat-card class="example-card">
-      <mat-card-header  class="headerList">
-        <mat-card-subtitle >To do 📝</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <!--Tu je card-->
-        <app-task *ngFor="let data of dataSource" [myTask] = "data" ></app-task>
+<!------------------------------------
+TASKY
+------------------------------------->
 
-        
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="drag-container">
+        <div class="section-heading">To do</div>
 
-      </mat-card-content>
-      <mat-card-actions>
-        <button
-          mat-icon-button
-          class="example-icon favorite-icon"
-          aria-label="Example icon-button with heart icon"
-          (click)="openDialog()"
+        <div
+          cdkDropList
+          #pendingList="cdkDropList"
+          [cdkDropListData]="todo"
+          [cdkDropListConnectedTo]="[doneList, reviewList]"
+          class="item-list"
+          (cdkDropListDropped)="drop($event)"
         >
-          <mat-icon>library_add</mat-icon>
-        </button>
-      </mat-card-actions>
-      <mat-card-footer> </mat-card-footer>
-    </mat-card>
-  </div>
+          <div class="item-box" *ngFor="let item of todo" cdkDrag>
+            <button (click)="description()"  class="outlineDelete">
+              <mat-card-content> {{ item }}</mat-card-content>
+            </button>
+            
+            <button
+              mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+              (click)="deleteOneTask(myTask.id)"
+            >
+              <mat-icon class="close">close</mat-icon>
+            </button>
+            
+          </div>
+          <button
+            mat-icon-button
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+            (click)="openDialog()"
+          >
+            <mat-icon>library_add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="drag-container">
+        <div class="section-heading">In Progress</div>
 
-  <!--list n 2-->
-  <div class="list">
-    <mat-card class="example-card">
-      <mat-card-header class="headerList">
-        <mat-card-subtitle>In progress 🔄
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <!--Tu je card-->
-        <!--<app-task *ngFor="let data of dataSource" [myTask] = "data"></app-task> -->
-      </mat-card-content>
-      <mat-card-actions>
-        <button
-          mat-icon-button
-          class="example-icon favorite-icon"
-          aria-label="Example icon-button with heart icon"
-          (click)="openDialog()"
+        <div
+          cdkDropList
+          #doneList="cdkDropList"
+          [cdkDropListData]="done"
+          [cdkDropListConnectedTo]="[pendingList, reviewList]"
+          class="item-list"
+          (cdkDropListDropped)="drop($event)"
         >
-          <mat-icon>library_add</mat-icon>
-        </button>
-      </mat-card-actions>
-      <mat-card-footer> </mat-card-footer>
-    </mat-card>
-  </div>
-  <!--list n 2-->
-  <div class="list">
-    <mat-card class="example-card">
-      <mat-card-header class="headerList">
-        <mat-card-subtitle>Done ✔️</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <!--Tu je card-->
-        <!--<app-task *ngFor="let data of dataSource" [myTask] = "data"></app-task> -->
+          <div class="item-box" *ngFor="let item of done" cdkDrag>
+            {{ item }}
+            <button
+              mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+              (click)="deleteOneTask(myTask.id)"
+            >
+              <mat-icon class="close">close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="drag-container">
+        <div class="section-heading">Done</div>
 
-      </mat-card-content>
-      <mat-card-actions>
-        <button
-          mat-icon-button
-          class="example-icon favorite-icon"
-          aria-label="Example icon-button with heart icon"
-          (click)="openDialog()"
+        <div
+          cdkDropList
+          #reviewList="cdkDropList"
+          [cdkDropListData]="review"
+          [cdkDropListConnectedTo]="[doneList, pendingList]"
+          class="item-list"
+          (cdkDropListDropped)="drop($event)"
         >
-          <mat-icon>library_add</mat-icon>
-        </button>
-      </mat-card-actions>
-      <mat-card-footer> </mat-card-footer>
-    </mat-card>
+          <div class="item-box" *ngFor="let item of review" cdkDrag>
+            {{ item }}
+            <button
+              mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+              (click)="deleteOneTask(myTask.id)"
+            >
+              <mat-icon class="close">close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
-
-

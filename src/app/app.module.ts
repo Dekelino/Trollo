@@ -16,34 +16,37 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
-import { TaskComponent } from './task/task.component'
+import { TaskComponent } from './task/task.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { PopUpComponent } from "./pop-up/pop-up.component";
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomePageComponent,
-    TaskComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatToolbarModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    MatSlideToggleModule,
-    MatDialogModule
-    
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        HomePageComponent,
+        TaskComponent,
+        PopUpComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        MatCardModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatToolbarModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        MatSlideToggleModule,
+        MatDialogModule,
+        DragDropModule,
+    ]
 })
 export class AppModule { }
