@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthguardGuard } from './services/authguard.guard';
 
+
 const routes: Routes = [
   {path:"login", component: LoginComponent},
   {path:"homePage", component:HomePageComponent,canActivate:[AuthguardGuard]}
