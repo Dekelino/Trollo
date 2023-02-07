@@ -2,11 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
 
-## Hello123
+## Java Spring Server
+
+Go to this website `https://github.com/TFs112/AngularServer` and download the server, after that run it in your IDE (Eclipse or IntelliJ).
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/login`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
