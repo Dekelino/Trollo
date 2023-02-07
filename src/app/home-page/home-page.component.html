@@ -52,14 +52,14 @@ TASKY
         >
           <div class="item-box" *ngFor="let item of todo" cdkDrag>
             <button (click)="description()"  class="outlineDelete">
-              <mat-card-content> {{ item }}</mat-card-content>
+              <mat-card-content> {{item.name}}</mat-card-content>
             </button>
             
             <button
               mat-icon-button
               class="example-icon favorite-icon"
               aria-label="Example icon-button with heart icon"
-              (click)="deleteOneTask(myTask.id)"
+              (click)="deleteOneTask(item.id)"
             >
               <mat-icon class="close">close</mat-icon>
             </button>
@@ -89,12 +89,12 @@ TASKY
           (cdkDropListDropped)="drop($event)"
         >
           <div class="item-box" *ngFor="let item of done" cdkDrag>
-            {{ item }}
+            {{ item.name }}
             <button
               mat-icon-button
               class="example-icon favorite-icon"
               aria-label="Example icon-button with heart icon"
-              (click)="deleteOneTask(myTask.id)"
+              (click)="deleteOneTask(item.id)"
             >
               <mat-icon class="close">close</mat-icon>
             </button>
@@ -115,12 +115,12 @@ TASKY
           (cdkDropListDropped)="drop($event)"
         >
           <div class="item-box" *ngFor="let item of review" cdkDrag>
-            {{ item }}
+            {{ item.name }}
             <button
               mat-icon-button
               class="example-icon favorite-icon"
               aria-label="Example icon-button with heart icon"
-              (click)="deleteOneTask(myTask.id)"
+              (click)="deleteOneTask(item.id)"
             >
               <mat-icon class="close">close</mat-icon>
             </button>

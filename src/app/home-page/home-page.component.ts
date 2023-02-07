@@ -3,6 +3,7 @@ import { UsersService } from '../services/users.service';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MyTask } from 'src/entities/task';
+import { OneTask } from 'src/entities/oneTask';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -16,29 +17,18 @@ import {
 })
 export class HomePageComponent implements OnInit {
   @Input("myTask") myTask! : MyTask
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  
+  body = new OneTask
 
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
+  todo: MyTask[] = []
 
-  review = [
-    'Take bath',
-    'Wash car',
-  ];
+  done: MyTask[]  = [];
+
+  review: MyTask[] = [];
 
   username = '';
 
-  public dataSource: MyTask[] = [];
+  
 
   constructor(
     private usersService: UsersService,
@@ -61,11 +51,12 @@ export class HomePageComponent implements OnInit {
 
   getAllTasks() {
     this.usersService.getTasks().subscribe((tasks) => {
-      this.dataSource = tasks;
+      this.todo = tasks;
     });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+
+  drop(event: CdkDragDrop<MyTask[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {

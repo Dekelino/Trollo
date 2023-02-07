@@ -24,6 +24,7 @@ export class PopUpComponent {
     console.log(this.body)
     this.usersService.postTask(this.body).subscribe()
     this.usersService.getTasks().subscribe()
+    window.location.reload()
   }
 }
 
