@@ -123,4 +123,8 @@ export class UsersService {
       return EMPTY;
     }
 
+    isLoggedIn(){
+      return !!localStorage.getItem('token');
+    }
+
 }

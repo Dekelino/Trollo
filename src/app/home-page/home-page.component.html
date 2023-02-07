@@ -52,9 +52,9 @@ TASKY
         >
           <div class="item-box" *ngFor="let item of todo" cdkDrag>
             <button (click)="description()"  class="outlineDelete">
-              <mat-card-content> {{item.name}}</mat-card-content>
+              <mat-card-content> Name: {{item.name}}</mat-card-content>
+              <mat-card-content> Description: {{item.text}}</mat-card-content>
             </button>
-            
             <button
               mat-icon-button
               class="example-icon favorite-icon"
@@ -63,6 +63,8 @@ TASKY
             >
               <mat-icon class="close">close</mat-icon>
             </button>
+
+            
             
           </div>
           <button
