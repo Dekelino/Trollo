@@ -51,9 +51,22 @@ TASKY
           (cdkDropListDropped)="drop($event)"
         >
           <div class="item-box" *ngFor="let item of todo" cdkDrag>
-                <mat-card-content class="nameTask">{{item.name}}</mat-card-content>
-                <mat-card-content class="descriptionTask">{{item.text}}</mat-card-content>
-             
+            <mat-card-content class="nameTask">{{
+              item.name
+            }}</mat-card-content>
+            <mat-card-content class="descriptionTask">{{
+              item.text
+            }}</mat-card-content>
+
+            <button
+              mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+              (click)="editTask()"
+            >
+              <mat-icon class="close">edit</mat-icon>
+            </button>
+
             <button
               mat-icon-button
               class="example-icon favorite-icon"
@@ -62,9 +75,6 @@ TASKY
             >
               <mat-icon class="close">close</mat-icon>
             </button>
-
-            
-            
           </div>
           <button
             mat-icon-button
@@ -79,7 +89,7 @@ TASKY
     </div>
     <div class="col-md-4">
       <div class="drag-container">
-          <div class="section-heading">In Progress 🔄</div>
+        <div class="section-heading">In Progress 🔄</div>
 
         <div
           cdkDropList
@@ -90,8 +100,20 @@ TASKY
           (cdkDropListDropped)="drop($event)"
         >
           <div class="item-box" *ngFor="let item of done" cdkDrag>
-              <mat-card-content class="nameTask">{{item.name}}</mat-card-content>
-              <mat-card-content class="descriptionTask">{{item.text}}</mat-card-content>
+            <mat-card-content class="nameTask">{{
+              item.name
+            }}</mat-card-content>
+            <mat-card-content class="descriptionTask">{{
+              item.text
+            }}</mat-card-content>
+            <button
+              mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+              (click)="editTask()"
+            >
+              <mat-icon class="close">edit</mat-icon>
+            </button>
             <button
               mat-icon-button
               class="example-icon favorite-icon"
@@ -117,8 +139,20 @@ TASKY
           (cdkDropListDropped)="drop($event)"
         >
           <div class="item-box" *ngFor="let item of review" cdkDrag>
-            <mat-card-content class="nameTask">{{item.name}}</mat-card-content>
-              <mat-card-content class="descriptionTask">{{item.text}}</mat-card-content>
+            <mat-card-content class="nameTask">{{
+              item.name
+            }}</mat-card-content>
+            <mat-card-content class="descriptionTask">{{
+              item.text
+            }}</mat-card-content>
+            <button
+              mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+              (click)="editTask()"
+            >
+              <mat-icon class="close">edit</mat-icon>
+            </button>
             <button
               mat-icon-button
               class="example-icon favorite-icon"

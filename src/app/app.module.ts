@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +18,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { TaskComponent } from './task/task.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { PopUpComponent } from "./pop-up/pop-up.component";
+import { EditTaskComponent } from './edit-task/edit-task.component';
+import { ErrorCardComponent } from './error-card/error-card.component';
+
 
 
 
@@ -28,7 +30,9 @@ import { PopUpComponent } from "./pop-up/pop-up.component";
         LoginComponent,
         HomePageComponent,
         TaskComponent,
-        PopUpComponent
+        PopUpComponent,
+        EditTaskComponent,
+        ErrorCardComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -43,10 +47,11 @@ import { PopUpComponent } from "./pop-up/pop-up.component";
         MatIconModule,
         MatToolbarModule,
         BrowserAnimationsModule,
-        AppRoutingModule,
         MatSlideToggleModule,
         MatDialogModule,
         DragDropModule,
+        AppRoutingModule,
+
     ]
 })
 export class AppModule { }

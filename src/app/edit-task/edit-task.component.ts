@@ -1,22 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { UsersService } from '../services/users.service';
-import { PopUpComponent } from '../pop-up/pop-up.component';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MyTask } from 'src/entities/task';
 import { OneTask } from 'src/entities/oneTask';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
-import { EditTaskComponent } from '../edit-task/edit-task.component';
+import { MyTask } from 'src/entities/task';
+import { PopUpComponent } from '../pop-up/pop-up.component';
+import { UsersService } from '../services/users.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css'],
+  selector: 'app-edit-task',
+  templateUrl: './edit-task.component.html',
+  styleUrls: ['./edit-task.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class EditTaskComponent {
+onSubmit() {
+throw new Error('Method not implemented.');
+}
   @Input("myTask") myTask! : MyTask
   
   body = new OneTask
@@ -28,6 +26,8 @@ export class HomePageComponent implements OnInit {
   review: MyTask[] = [];
 
   username = '';
+auth: any;
+hide: any;
 
   
 
@@ -82,4 +82,5 @@ export class HomePageComponent implements OnInit {
   editTask(){
     this.dialogRef.open(EditTaskComponent)
   }
+
 }
