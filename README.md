@@ -8,10 +8,10 @@ Go to this website `https://github.com/TFs112/AngularServer` download the server
 
 ## Step 2
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/login`. The application will automatically reload if you change any of the source files.
+Go to Visual Studio and run `ng serve`. Navigate to `http://localhost:4200/login`. The application will automatically reload if you change any of the source files.
 
 ## Step 3
 
-Have fun testing our website.
+Have fun testing our task manager website.
 
 
