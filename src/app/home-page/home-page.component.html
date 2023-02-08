@@ -40,7 +40,7 @@ TASKY
   <div class="row">
     <div class="col-md-4">
       <div class="drag-container">
-        <div class="section-heading">To do</div>
+        <div class="section-heading">To do 📝</div>
 
         <div
           cdkDropList
@@ -51,10 +51,9 @@ TASKY
           (cdkDropListDropped)="drop($event)"
         >
           <div class="item-box" *ngFor="let item of todo" cdkDrag>
-            <button (click)="description()"  class="outlineDelete">
-              <mat-card-content> Name: {{item.name}}</mat-card-content>
-              <mat-card-content> Description: {{item.text}}</mat-card-content>
-            </button>
+                <mat-card-content class="nameTask">{{item.name}}</mat-card-content>
+                <mat-card-content class="descriptionTask">{{item.text}}</mat-card-content>
+             
             <button
               mat-icon-button
               class="example-icon favorite-icon"
@@ -80,7 +79,7 @@ TASKY
     </div>
     <div class="col-md-4">
       <div class="drag-container">
-        <div class="section-heading">In Progress</div>
+          <div class="section-heading">In Progress 🔄</div>
 
         <div
           cdkDropList
@@ -91,7 +90,8 @@ TASKY
           (cdkDropListDropped)="drop($event)"
         >
           <div class="item-box" *ngFor="let item of done" cdkDrag>
-            {{ item.name }}
+              <mat-card-content class="nameTask">{{item.name}}</mat-card-content>
+              <mat-card-content class="descriptionTask">{{item.text}}</mat-card-content>
             <button
               mat-icon-button
               class="example-icon favorite-icon"
@@ -106,7 +106,7 @@ TASKY
     </div>
     <div class="col-md-4">
       <div class="drag-container">
-        <div class="section-heading">Done</div>
+        <div class="section-heading">Done ✔️</div>
 
         <div
           cdkDropList
@@ -117,7 +117,8 @@ TASKY
           (cdkDropListDropped)="drop($event)"
         >
           <div class="item-box" *ngFor="let item of review" cdkDrag>
-            {{ item.name }}
+            <mat-card-content class="nameTask">{{item.name}}</mat-card-content>
+              <mat-card-content class="descriptionTask">{{item.text}}</mat-card-content>
             <button
               mat-icon-button
               class="example-icon favorite-icon"

@@ -2,7 +2,6 @@
     outline: none;
 }
 
-
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -72,6 +71,7 @@ mat-card-subtitle  {
   padding: 5px 10px;
   font-size: 15px;
   font-weight: bold;
+  text-align: center;
 }
 
 .drag-container {
@@ -80,9 +80,9 @@ mat-card-subtitle  {
   margin: 0 25px 25px 0;
   display: inline-block;
   vertical-align: top;
-  background-color:   rgb(163, 135, 191);
-  padding: 15px;
-  border-radius: 5px;
+  background-color:   whitesmoke;
+  border-radius: 15px;
+  padding-top: 10px;
 }
 
 .item-list {
@@ -143,4 +143,27 @@ padding: 0;
 font: inherit;
 cursor: pointer;
 outline: inherit;
+}
+
+.nameTask{
+  font-size: xx-large;
+  font-size: large;
+  text-align: center;
+  padding-left: 15px;
+  font-weight: bold;
+}
+.descriptionTask{
+  padding-right: 50px;
+  padding-left: 50px;
+  font-size: larger;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+
+}
+.containerTask{
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+
 }
