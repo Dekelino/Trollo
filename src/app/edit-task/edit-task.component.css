@@ -1,0 +1,39 @@
+mat-card{
+    max-width: 400px;
+    margin: auto;
+}
+
+mat-form-field{
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+}
+
+mat-card-actions, mat-card-header{
+    margin: auto;
+}
+
+.TrolloLogin{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container{
+    width: auto;
+    padding: 20px;
+}
+.edit-text{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+}
