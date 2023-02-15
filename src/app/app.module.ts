@@ -20,6 +20,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { PopUpComponent } from "./pop-up/pop-up.component";
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { ErrorCardComponent } from './error-card/error-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -51,6 +52,7 @@ import { ErrorCardComponent } from './error-card/error-card.component';
         MatDialogModule,
         DragDropModule,
         AppRoutingModule,
+        ReactiveFormsModule
 
     ]
 })

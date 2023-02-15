@@ -1,24 +1,27 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="reactiveform">
     <div class="wrapper">
     <mat-card>
         <img class="TrolloLogin" src="assets/TrolloProjectLogo.png"/>
         <mat-card-content>
             <mat-form-field appearance="fill">
                 <mat-label>Username</mat-label>
-                <input matInput [(ngModel)]="auth.username" name="username">
+                <input matInput [(ngModel)]="auth.username" name="username" formControlName="username">
             </mat-form-field>
+            <span *ngIf="f['username'].getError('required')!=null" class="errormessage">Username is required</span>
+                <span *ngIf="f['username'].getError('minlength')!=null" class="errormessage">Username should be at least 6 letters long.</span>
             <mat-form-field appearance="fill">
                 <mat-label>Enter your password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"
-                [(ngModel)]="auth.password" name="password">
+                [(ngModel)]="auth.password" name="password" formControlName="password">
                 <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
+            <span *ngIf="f['password'].getError('required')!=null" class="errormessage">Password is required</span>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-stroked-button color="primary" type="submit">Login</button>
+            <button [disabled]="reactiveform.invalid" mat-stroked-button color="primary" type="submit">Login</button>
         </mat-card-actions>
     </mat-card>
     </div>

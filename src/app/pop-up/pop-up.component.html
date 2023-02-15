@@ -1,12 +1,13 @@
 <div class="container">
-  <form>
+  <form [formGroup]="reactiveform">
     <div class="row">
       <div class="col-25">
         <label for="fname">Task Name:</label>
       </div>
       <div class="col-75">
         <textarea id="nameTextArea" name="name" #name
-          placeholder="Write something.."></textarea>
+          placeholder="Write something.." formControlName="taskName"></textarea>
+          <span *ngIf="f['taskName'].getError('required')!=null" class="errormessage">Task name is required</span>
       </div>
     </div>
     <div class="row">
@@ -18,11 +19,12 @@
         <label for="fname">Task description:</label>
       </div>
       <div class="col-75">
-        <textarea id="subject" name="text" #text  placeholder="Write something.."></textarea>
+        <textarea id="subject" name="text" #text  placeholder="Write something.." formControlName="taskDescription"></textarea>
+        <span *ngIf="f['taskDescription'].getError('required')!=null" class="errormessage">Task description is required</span>
       </div>
     </div>
     <div class="row">
-      <input type="submit" value="Submit" (click)="submitTask(name.value,text.value)">
+      <input [disabled]="reactiveform.invalid" type="submit" value="Submit" (click)="submitTask(name.value,text.value)">
     </div>
   </form>
 </div>

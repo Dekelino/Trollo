@@ -66,5 +66,9 @@ input[type=text], select, textarea{
     background-color: purple;
   }
 
+  .errormessage{
+    color: red;
+}
+
 
   

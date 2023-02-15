@@ -25,3 +25,7 @@ mat-card-actions, mat-card-header{
     width: 100vw;
     height: 100vh;
 }
+
+.errormessage{
+    color: red;
+}
