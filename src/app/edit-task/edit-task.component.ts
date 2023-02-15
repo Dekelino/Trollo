@@ -1,10 +1,12 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { EditTask } from 'src/entities/EditTask';
 import { OneTask } from 'src/entities/oneTask';
 import { MyTask } from 'src/entities/task';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { UsersService } from '../services/users.service';
+import { HomePageComponent } from '../home-page/home-page.component';
 
 @Component({
   selector: 'app-edit-task',
@@ -16,6 +18,8 @@ onSubmit() {
 throw new Error('Method not implemented.');
 }
   @Input("myTask") myTask! : MyTask
+ 
+  task = new EditTask
   
   body = new OneTask
 
@@ -26,10 +30,8 @@ throw new Error('Method not implemented.');
   review: MyTask[] = [];
 
   username = '';
-auth: any;
-hide: any;
-
-  
+  auth: any;
+  hide: any;
 
   constructor(
     private usersService: UsersService,
@@ -40,6 +42,10 @@ hide: any;
     this.username = this.usersService.username;
     this.usersService.userNameChanges().subscribe((un) => (this.username = un));
     this.getAllTasks();
+    this.usersService.currentTask.subscribe(task =>{
+      this.task = task
+    })
+    console.log(this.task)
   }
 
   logout() {
@@ -68,6 +74,12 @@ hide: any;
     }
   }
 
+  submitReplaceTask(id: number,name : string, text: string,){
+    const replaceTaskBody = new EditTask(id,name,text)
+    this.usersService.replaceTask(replaceTaskBody).subscribe()
+    window.location.reload()
+  }
+
   deleteOneTask(id:number){
     console.log(id)
     this.usersService.deleteTask(id).subscribe()
@@ -77,10 +89,6 @@ hide: any;
   isDisplay=true;
   description(){
     this.isDisplay=!this.isDisplay
-  }
-
-  editTask(){
-    this.dialogRef.open(EditTaskComponent)
   }
 
 }

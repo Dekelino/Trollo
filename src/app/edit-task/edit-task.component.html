@@ -4,15 +4,15 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Edit name</mat-label>
-        <input matInput />
+        <input matInput value="{{task.name}}" #name>
          </mat-form-field
       ><mat-form-field appearance="fill">
         <mat-label>Edit description</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput value="{{task.text}}" #text></textarea>
       </mat-form-field>
      
     </div>
-    <button mat-fab extended color="primary">
+    <button mat-fab extended color="primary" (click)="submitReplaceTask(task.id,name.value,text.value)">
       <mat-icon>done_outline</mat-icon>
       Submit
     </button>

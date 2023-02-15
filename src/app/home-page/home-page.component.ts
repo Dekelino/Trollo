@@ -4,12 +4,14 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MyTask } from 'src/entities/task';
 import { OneTask } from 'src/entities/oneTask';
+import { EditTask } from 'src/entities/EditTask';
 import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { EditTaskComponent } from '../edit-task/edit-task.component';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -18,8 +20,10 @@ import { EditTaskComponent } from '../edit-task/edit-task.component';
 })
 export class HomePageComponent implements OnInit {
   @Input("myTask") myTask! : MyTask
-  
+
   body = new OneTask
+
+  task = new EditTask
 
   todo: MyTask[] = []
 
@@ -28,18 +32,20 @@ export class HomePageComponent implements OnInit {
   review: MyTask[] = [];
 
   username = '';
-
   
-
   constructor(
     private usersService: UsersService,
-    private dialogRef: MatDialog
+    private dialogRef: MatDialog,
   ) {}
 
   ngOnInit(): void {
     this.username = this.usersService.username;
     this.usersService.userNameChanges().subscribe((un) => (this.username = un));
     this.getAllTasks();
+  }
+
+  returnTask(){
+    return this.task;
   }
 
   logout() {
@@ -79,7 +85,12 @@ export class HomePageComponent implements OnInit {
     this.isDisplay=!this.isDisplay
   }
 
-  editTask(){
+  editTask(id:number){
+    this.usersService.getTask(id).subscribe((task) => {
+      this.task = task
+      this.usersService.changeTask(task);
+      console.log(this.task)
     this.dialogRef.open(EditTaskComponent)
+    })
   }
 }

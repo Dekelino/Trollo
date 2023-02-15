@@ -1,8 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, EMPTY, map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, map, Observable, Subject } from 'rxjs';
 import { Auth } from 'src/entities/auth';
+import { EditTask } from 'src/entities/EditTask';
 import { OneTask } from 'src/entities/oneTask.js';
 import { MyTask } from 'src/entities/task';
 
@@ -20,6 +21,11 @@ export class UsersService {
   public redirectAfterLogin = DEFAULT_REDIRECT_AFTER_LOGIN;
   public redirectAfterLogout = DEFAULT_REDIRECT_AFTER_LOGOUT;
   userNameSubject = new Subject<string>();
+ 
+
+  
+  private editTaskSource = new BehaviorSubject<EditTask>(new EditTask)
+  currentTask = this.editTaskSource.asObservable()
 
   
 
@@ -28,6 +34,10 @@ export class UsersService {
    // private messageService: MessageService
     ) { }
 
+    changeTask(task : EditTask){
+      this.editTaskSource.next(task)
+    }
+    
     private get token(): string {
       return localStorage.getItem('token') || '';
     }
@@ -67,7 +77,7 @@ export class UsersService {
     userNameChanges(): Observable<string> {
       return this.userNameSubject.asObservable();
     }
-  
+
     login(auth: Auth): Observable<boolean>{
       return this.http.post(this.url + 'userLogin',auth, {responseType: 'text'}).pipe(
         map(token => {
@@ -104,6 +114,14 @@ export class UsersService {
 
     deleteTask(id : number){
       return this.http.delete(this.url+"tasks/"+id)
+    }
+
+    getTask(id : number){
+      return this.http.get<MyTask>(this.url+"tasks/"+id)
+    }
+
+    replaceTask(body : OneTask){
+      return this.http.put(this.url+"replaceTask",body)
     }
   
     processError(error:any): Observable<never> {

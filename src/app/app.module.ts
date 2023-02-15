@@ -21,6 +21,7 @@ import { PopUpComponent } from "./pop-up/pop-up.component";
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { ErrorCardComponent } from './error-card/error-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UsersService } from './services/users.service';
 
 
 
@@ -35,7 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         EditTaskComponent,
         ErrorCardComponent,
     ],
-    providers: [],
+    providers: [UsersService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
