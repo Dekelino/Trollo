@@ -22,6 +22,8 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
 import { ErrorCardComponent } from './error-card/error-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './services/users.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -53,7 +55,8 @@ import { UsersService } from './services/users.service';
         MatDialogModule,
         DragDropModule,
         AppRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatSnackBarModule
 
     ]
 })

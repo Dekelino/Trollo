@@ -8,7 +8,7 @@
                 <input matInput [(ngModel)]="auth.username" name="username" formControlName="username">
             </mat-form-field>
             <span *ngIf="f['username'].getError('required')!=null" class="errormessage">Username is required</span>
-                <span *ngIf="f['username'].getError('minlength')!=null" class="errormessage">Username should be at least 6 letters long.</span>
+                <span *ngIf="f['username'].getError('minlength')!=null" class="errormessage">Username should be at least 5 letters long.</span>
             <mat-form-field appearance="fill">
                 <mat-label>Enter your password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"

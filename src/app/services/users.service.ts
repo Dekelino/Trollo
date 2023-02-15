@@ -6,6 +6,7 @@ import { Auth } from 'src/entities/auth';
 import { EditTask } from 'src/entities/EditTask';
 import { OneTask } from 'src/entities/oneTask.js';
 import { MyTask } from 'src/entities/task';
+import { MessageService } from './message.service';
 
 
 export const DEFAULT_REDIRECT_AFTER_LOGIN = "/homePage";
@@ -31,7 +32,7 @@ export class UsersService {
 
   constructor(private http: HttpClient, 
     private router: Router,
-   // private messageService: MessageService
+    private messageService: MessageService
     ) { }
 
     changeTask(task : EditTask){
@@ -105,37 +106,45 @@ export class UsersService {
     }
 
     getTasks(){
-      return this.http.get<MyTask[]>(this.url + 'tasks')
+      return this.http.get<MyTask[]>(this.url + 'tasks').pipe(catchError(error => this.processError(error)));
     }
 
     postTask(body : OneTask){
-      return this.http.post(this.url + "task",body)
+      return this.http.post(this.url + "task",body).pipe(catchError(error => this.processError(error)));
     }
 
     deleteTask(id : number){
-      return this.http.delete(this.url+"tasks/"+id)
+      return this.http.delete(this.url+"tasks/"+id).pipe(catchError(error => this.processError(error)));
     }
 
     getTask(id : number){
-      return this.http.get<MyTask>(this.url+"tasks/"+id)
+      return this.http.get<MyTask>(this.url+"tasks/"+id).pipe(catchError(error => this.processError(error)));
     }
 
     replaceTask(body : OneTask){
-      return this.http.put(this.url+"replaceTask",body)
+      return this.http.put(this.url+"replaceTask",body).pipe(catchError(error => this.processError(error)));
     }
   
     processError(error:any): Observable<never> {
       if (error instanceof HttpErrorResponse) {
         if (error.status === 0) {
-      //    this.messageService.errorMessage("Server unavailable");
+          this.messageService.errorMessage("Server unavailable");
+          return EMPTY;
+        }
+        if (error.status === 400) {
+          this.messageService.errorMessage("Wrong Credentials");
+          return EMPTY;
+        }
+        if (error.status === 409) {
+          this.messageService.errorMessage("User is already logged in");
           return EMPTY;
         }
         if (error.status < 500) {
           const message = error.error.errorMessage || JSON.parse(error.error).errorMessage;
-       //   this.messageService.errorMessage(message);
+          this.messageService.errorMessage(message);
           return EMPTY;
         }
-     //   this.messageService.errorMessage("Server failed");
+        this.messageService.errorMessage("Server failed");
       }
       console.error(error);
       return EMPTY;

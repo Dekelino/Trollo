@@ -16,7 +16,7 @@ export class LoginComponent {
   
   constructor(private usersService : UsersService,private formbuilder:  FormBuilder){
     this.reactiveform = this.formbuilder.group({
-      username: new FormControl('',Validators.compose([Validators.required,Validators.minLength(6)])),
+      username: new FormControl('',Validators.compose([Validators.required,Validators.minLength(5)])),
       password: new FormControl('',Validators.required)
     })
   }
